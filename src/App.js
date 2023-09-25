@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import GestorForm from './components/GestorForm';
+import GestorList from './components/GestorList';
+import GestorEdit from './components/GestorEdit';  // Importe o novo componente aqui
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/create" element={<GestorForm />} />
+          <Route path="/list" element={<GestorList />} />
+          <Route path="/edit/:id" element={<GestorEdit />} />  {/* Adicione esta nova rota */}
+        </Routes>
+        {/* Você pode adicionar um link ou navbar aqui para navegação, se desejar. */}
+      </div>
+    </Router>
   );
 }
 
