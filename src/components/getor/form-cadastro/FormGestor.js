@@ -58,11 +58,18 @@ function FormGestor({ isEditMode }) {
 
         if (isEditMode) {
             try {
-                await axios.put(`http://localhost:8000/gestor/update/${id}/`, {
-                    method: 'POST',
-                    body: JSON.stringify(formData),
+
+                console.log(formData);
+                const response = await axios.put(`http://localhost:8000/gestor/update/${id}/`,
+                    JSON.stringify(formData),{
                     headers: { 'Content-Type': 'application/json' }
                 });
+
+                if (response.status === 200) {
+                    console.log("Gestor criado com sucesso!");
+                } else {
+                    console.error("Erro ao criar gestor:", response);
+                }
             }
             catch (error) {
                 console.error("Erro ao enviar os dados:", error);
