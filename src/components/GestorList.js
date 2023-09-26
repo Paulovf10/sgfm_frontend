@@ -55,7 +55,6 @@ function GestorList() {
           <h2>Detalhes do Gestor</h2>
           <p>Nome: {selectedGestor.nome}</p>
           <p>Email: {selectedGestor.email}</p>
-          {/* ... Mostre outros campos conforme necessário ... */}
         </div>
       )}
     </div>
