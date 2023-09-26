@@ -41,7 +41,7 @@ function FormGestor({ isEditMode }) {
             fetchGestor();
         }
         setIsLoading(false);
-    }, [id]);
+    }, [id, isEditMode]);
 
     const handleChange = (e) => {
         console.log('e: ', e);
@@ -56,27 +56,33 @@ function FormGestor({ isEditMode }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const data = new FormData()
-        for (let key in formData) {
-            data.append(key, formData[key]);
-        }
-
-
-        try {
-            console.log(data);
-            const response = await fetch('http://127.0.0.1:8000/gestor/create/', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-                headers: {'Content-Type': 'application/json'}
-            });
-
-            if (response.status === 201) {
-                console.log("Gestor criado com sucesso!");
-            } else {
-                console.error("Erro ao criar gestor:", await response.text());
+        if (isEditMode) {
+            try {
+                await axios.put(`http://localhost:8000/gestor/update/${id}/`, {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: { 'Content-Type': 'application/json' }
+                });
             }
-        } catch (error) {
-            console.error("Erro ao enviar os dados:", error);
+            catch (error) {
+                console.error("Erro ao enviar os dados:", error);
+            }
+        } else {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/gestor/create/', {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (response.status === 201) {
+                    console.log("Gestor criado com sucesso!");
+                } else {
+                    console.error("Erro ao criar gestor:", await response.text());
+                }
+            } catch (error) {
+                console.error("Erro ao enviar os dados:", error);
+            }
         }
     };
 
@@ -195,7 +201,7 @@ function FormGestor({ isEditMode }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <button type="submit">Criar</button>
+                        <button type="submit" >{isEditMode?'Editar':'Criar'}</button>
                     </form>
                 </div>
             </div>
