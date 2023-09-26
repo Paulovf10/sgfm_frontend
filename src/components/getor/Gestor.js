@@ -41,7 +41,7 @@ function Gestor() {
         navigate(`/gestor/edit/${id}`); // Usando o hook para navegar para a página de edição
     };
 
-    const handleClickBotaoGestor = () =>{
+    const handleClickBotaoGestor = () => {
         navigate('/gestor/create')
     }
 
@@ -49,18 +49,40 @@ function Gestor() {
         <div>
             <Sidebar></Sidebar>
             <div className="content">
-                <button className="botao-cadastra-gestor" onClick={handleClickBotaoGestor}>Cadastrar Gestor</button>
+                <div className="cadastrar-gestor">
+                    <button className="botao-cadastra-gestor" onClick={handleClickBotaoGestor}>
+                        Cadastrar Gestor
+                    </button>
+                </div>
 
-                {gestors.map(gestor => (
-                    <div key={gestor.id}>
-                        <span onClick={() => handleDetails(gestor)} style={{ cursor: 'pointer' }}>
-                            {gestor.nome}
-                        </span>
-                        <button onClick={() => handleEdit(gestor.id)}>Editar</button>
-                        <button onClick={() => handleDelete(gestor.id)}>Deletar</button>
-                    </div>
-                ))}
-
+                {gestors.length ? (
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {gestors.map((gestor) => (
+                            <tr key={gestor.id}>
+                                <td>
+                                    <span onClick={() => handleDetails(gestor)} style={{ cursor: 'pointer' }}>
+                                        {gestor.nome}
+                                    </span>
+                                </td>
+                                <td>{gestor.email}</td>
+                                <td>
+                                    <button className='editar' onClick={() => handleEdit(gestor.id)}>Editar</button>
+                                    <button className='deletar' onClick={() => handleDelete(gestor.id)}>Deletar</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                ) : (<></>)}
+                
                 {selectedGestor && (
                     <div>
                         <h2>Detalhes do Gestor</h2>

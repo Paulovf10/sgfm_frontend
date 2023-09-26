@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import Sidebar from '../../sidebar/Sidebar';
@@ -8,6 +8,7 @@ import './FormGestor.css';
 function FormGestor({ isEditMode }) {
     console.log('isEditMode', isEditMode);
     const { id } = useParams();
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [formData, setFormData] = useState({
         nome: '',
@@ -73,6 +74,8 @@ function FormGestor({ isEditMode }) {
             }
             catch (error) {
                 console.error("Erro ao enviar os dados:", error);
+            } finally {
+                navigate(`gestor`);
             }
         } else {
             try {
@@ -89,6 +92,8 @@ function FormGestor({ isEditMode }) {
                 }
             } catch (error) {
                 console.error("Erro ao enviar os dados:", error);
+            } finally {
+                navigate(`gestor`);
             }
         }
     };
