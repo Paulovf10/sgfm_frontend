@@ -11,8 +11,8 @@ function AppRouter() {
         <Routes>
           <Route path="/*" element={<Home></Home>} />
           {/* Gestor */}
-          <Route path="/gestor/*" element={<Gestor />} />
-          <Route path="/gestor/edit:id" element={<FormGestor isEditMode={true} />} />
+          <Route path="/gestor/" element={<Gestor />} />
+          <Route path="/gestor/edit/:id" element={<FormGestor isEditMode={true} />} />
           <Route path="/gestor/create" element={<FormGestor isEditMode={false} />} />
 
         </Routes>

@@ -38,7 +38,7 @@ function Gestor() {
     };
 
     const handleEdit = (id) => {
-        navigate(`/gestor/edit${id}`); // Usando o hook para navegar para a página de edição
+        navigate(`/gestor/edit/${id}`); // Usando o hook para navegar para a página de edição
     };
 
     const handleClickBotaoGestor = () =>{

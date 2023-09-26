@@ -58,14 +58,16 @@ function FormGestor({ isEditMode }) {
 
         const data = new FormData()
         for (let key in formData) {
-            data[key] = formData[key];
+            data.append(key, formData[key]);
         }
 
 
         try {
+            console.log(data);
             const response = await fetch('http://127.0.0.1:8000/gestor/create/', {
                 method: 'POST',
-                body: data
+                body: JSON.stringify(formData),
+                headers: {'Content-Type': 'application/json'}
             });
 
             if (response.status === 201) {
