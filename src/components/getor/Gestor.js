@@ -33,56 +33,50 @@ function Gestor() {
         }
     };
 
-    const handleDetails = (gestor) => {
-        setSelectedGestor(gestor);
-    };
-
-    const handleEdit = (id) => {
-        navigate(`/gestor/edit/${id}`); // Usando o hook para navegar para a página de edição
-    };
-
-    const handleClickBotaoGestor = () => {
-        navigate('/gestor/create')
-    }
-
     return (
         <div>
             <Sidebar></Sidebar>
             <div className="content">
                 <div className="cadastrar-gestor">
-                    <button className="botao-cadastra-gestor" onClick={handleClickBotaoGestor}>
+                    <button className="botao-cadastra-gestor" onClick={() => {
+                        navigate('/gestor/create');
+                    }}>
                         Cadastrar Gestor
                     </button>
                 </div>
 
                 {gestors.length ? (
                     <table>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {gestors.map((gestor) => (
-                            <tr key={gestor.id}>
-                                <td>
-                                    <span onClick={() => handleDetails(gestor)} style={{ cursor: 'pointer' }}>
-                                        {gestor.nome}
-                                    </span>
-                                </td>
-                                <td>{gestor.email}</td>
-                                <td>
-                                    <button className='editar' onClick={() => handleEdit(gestor.id)}>Editar</button>
-                                    <button className='deletar' onClick={() => handleDelete(gestor.id)}>Deletar</button>
-                                </td>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Ações</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {gestors.map((gestor) => (
+                                <tr key={gestor.id}>
+                                    <td>
+                                        <span onClick={() => {
+                                            setSelectedGestor(gestor);
+                                        }} style={{ cursor: 'pointer' }}>
+                                            {gestor.nome}
+                                        </span>
+                                    </td>
+                                    <td>{gestor.email}</td>
+                                    <td>
+                                        <button className='editar' onClick={() => {
+                                            navigate(`/gestor/edit/${gestor.id}`);
+                                        }}>Editar</button>
+                                        <button className='deletar' onClick={() => handleDelete(gestor.id)}>Deletar</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 ) : (<></>)}
-                
+
                 {selectedGestor && (
                     <div>
                         <h2>Detalhes do Gestor</h2>

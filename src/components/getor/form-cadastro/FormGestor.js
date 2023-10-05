@@ -75,7 +75,7 @@ function FormGestor({ isEditMode }) {
             catch (error) {
                 console.error("Erro ao enviar os dados:", error);
             } finally {
-                navigate(`gestor`);
+                navigate(`/gestor`);
             }
         } else {
             try {
@@ -93,7 +93,7 @@ function FormGestor({ isEditMode }) {
             } catch (error) {
                 console.error("Erro ao enviar os dados:", error);
             } finally {
-                navigate(`gestor`);
+                navigate(`/gestor`);
             }
         }
     };
