@@ -1,8 +1,8 @@
-.cadastrar-gestor{
+.cadastrar-metas{
     text-align: center;
 }
 
-.botao-cadastra-gestor {
+.botao-cadastra-metas {
     align-self: center;
     background-color: #007bff; 
     color: #fff; 
@@ -14,8 +14,8 @@
     text-align: center;
   }
   
-.botao-cadastra-gestor:hover {
-    background-color: #0056b3; 
+.botao-cadastra-metas:hover {
+    background-color: #0056b3;
 }
 
 table {
@@ -24,7 +24,6 @@ table {
     margin-top: 20px;
   }
   
-  
   th {
     background-color: #f2f2f2;
     padding: 10px;
@@ -32,12 +31,10 @@ table {
     border-bottom: 1px solid #ccc;
   }
   
-  
   td {
     padding: 10px;
     border-bottom: 1px solid #ccc;
   }
-  
   
   table button {
     color: #fff;
@@ -63,7 +60,6 @@ table {
   table button.deletar:hover {
     background-color: rgb(175, 31, 31);;
   }
-  
   
   table span {
     color: #007bff;

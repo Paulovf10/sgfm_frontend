@@ -8,7 +8,7 @@ import './Gestor.css'
 function Gestor() {
     const [gestors, setGestors] = useState([]);
     const [selectedGestor, setSelectedGestor] = useState(null);
-    const navigate = useNavigate();  // Hook de navegação
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchGestors = async () => {
