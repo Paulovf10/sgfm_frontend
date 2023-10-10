@@ -13,7 +13,7 @@ function Gestor() {
     useEffect(() => {
         const fetchGestors = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/gestor/list/');
+                const response = await axios.get('http://localhost:8000/user/list/');
                 setGestors(response.data.results);
             } catch (error) {
                 console.error("Erro ao buscar os gestores", error);
@@ -25,7 +25,7 @@ function Gestor() {
     const handleDelete = async (id) => {
         if (window.confirm('Deseja deletar este gestor?')) {
             try {
-                await axios.delete(`http://localhost:8000/gestor/delete/${id}/`);
+                await axios.delete(`http://localhost:8000/user/delete/${id}/`);
                 setGestors(gestors.filter(g => g.id !== id));
             } catch (error) {
                 console.error("Erro ao deletar o gestor", error);
@@ -61,7 +61,7 @@ function Gestor() {
                                         <span onClick={() => {
                                             setSelectedGestor(gestor);
                                         }} style={{ cursor: 'pointer' }}>
-                                            {gestor.nome}
+                                            {gestor.name}
                                         </span>
                                     </td>
                                     <td>{gestor.email}</td>
@@ -80,7 +80,7 @@ function Gestor() {
                 {selectedGestor && (
                     <div>
                         <h2>Detalhes do Gestor</h2>
-                        <p>Nome: {selectedGestor.nome}</p>
+                        <p>Nome: {selectedGestor.name}</p>
                         <p>Email: {selectedGestor.email}</p>
                     </div>
                 )}

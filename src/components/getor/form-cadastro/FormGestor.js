@@ -6,31 +6,27 @@ import Sidebar from '../../sidebar/Sidebar';
 import './FormGestor.css';
 
 function FormGestor({ isEditMode }) {
-    console.log('isEditMode', isEditMode);
     const { id } = useParams();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [formData, setFormData] = useState({
-        nome: '',
+        name: '',
         email: '',
-        senha: '',
-        dtNascimento: '',
-        endereco: '',
-        telefone: '',
-        empresa: '',
-        cargo: '',
-        equipe: '',
-        foto: null
+        password: '',
+        birth_date: '',
+        addres: '',
+        phone: '',
+        foto: null,
+        cpf: ''
     });
 
     useEffect(() => {
         const fetchGestor = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/gestor/retrieve/${id}/`);
+                const response = await axios.get(`http://localhost:8000/user/retrieve/${id}/`);
                 if (response.data) {
                     setFormData(response.data)
                 }
-                console.error(response.data);
             } catch (error) {
                 console.error("Erro ao buscar detalhes do gestor", error);
                 if (error.response) {
@@ -38,16 +34,16 @@ function FormGestor({ isEditMode }) {
                 }
             }
         };
+        console.log(isEditMode)
         if (isEditMode) {
+            console.log(isEditMode)
             fetchGestor();
         }
         setIsLoading(false);
     }, [id, isEditMode]);
 
     const handleChange = (e) => {
-        console.log('e: ', e);
         const value = e.target.type === 'file' ? e.target.files[0] : e.target.value;
-        console.log('value', value);
         setFormData({
             ...formData,
             [e.target.name]: value
@@ -57,44 +53,37 @@ function FormGestor({ isEditMode }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (isEditMode) {
-            try {
+        const apiData = {
+            identifier: formData.email,
+            type_user: 2,
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+            birth_date: formData.birth_date,
+            addres: formData.addres,
+            phone: formData.phone,
+            cpf: formData.cpf
+        };
 
-                console.log(formData);
-                const response = await axios.put(`http://localhost:8000/gestor/update/${id}/`,
-                    JSON.stringify(formData),{
+        try {
+            console.log(apiData)
+            const response = isEditMode 
+                ? await axios.put(`http://localhost:8000/user/update/${id}/`, JSON.stringify(apiData), {
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                : await axios.post('http://localhost:8000/user/create/', JSON.stringify(apiData), {
                     headers: { 'Content-Type': 'application/json' }
                 });
 
-                if (response.status === 200) {
-                    console.log("Gestor criado com sucesso!");
-                } else {
-                    console.error("Erro ao criar gestor:", response);
-                }
+            if (response.status === 200 || response.status === 201) {
+                console.log("Gestor criado com sucesso!");
+            } else {
+                console.error("Erro ao criar gestor:", response);
             }
-            catch (error) {
-                console.error("Erro ao enviar os dados:", error);
-            } finally {
-                navigate(`/gestor`);
-            }
-        } else {
-            try {
-                const response = await fetch('http://127.0.0.1:8000/gestor/create/', {
-                    method: 'POST',
-                    body: JSON.stringify(formData),
-                    headers: { 'Content-Type': 'application/json' }
-                });
-
-                if (response.status === 201) {
-                    console.log("Gestor criado com sucesso!");
-                } else {
-                    console.error("Erro ao criar gestor:", await response.text());
-                }
-            } catch (error) {
-                console.error("Erro ao enviar os dados:", error);
-            } finally {
-                navigate(`/gestor`);
-            }
+        } catch (error) {
+            console.error("Erro ao enviar os dados:", error);
+        } finally {
+            navigate(`/gestor`);
         }
     };
 
@@ -112,8 +101,8 @@ function FormGestor({ isEditMode }) {
                             <input
                                 type="text"
                                 placeholder="Nome"
-                                name="nome"
-                                value={formData.nome}
+                                name="name"
+                                value={formData.name}
                                 onChange={handleChange}
                                 required
                             />
@@ -134,18 +123,29 @@ function FormGestor({ isEditMode }) {
                             <input
                                 type="password"
                                 placeholder="Senha"
-                                name="senha"
-                                value={formData.senha}
+                                name="password"
+                                value={formData.password}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="dataNascimento">Data de Nascimento:</label>
+                            <label htmlFor="CPF">CPF:</label>
+                            <input
+                                type="cpf"
+                                placeholder="cpf"
+                                name="cpf"
+                                value={formData.cpf}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="dtNascimento">Data de Nascimento:</label>
                             <input
                                 type="date"
-                                name="dtNascimento"
-                                value={formData.dtNascimento}
+                                name="birth_date"
+                                value={formData.birth_date}
                                 onChange={handleChange}
                                 required
                             />
@@ -155,8 +155,8 @@ function FormGestor({ isEditMode }) {
                             <input
                                 type="text"
                                 placeholder="Endereço"
-                                name="endereco"
-                                value={formData.endereco}
+                                name="addres"
+                                value={formData.addres}
                                 onChange={handleChange}
                                 required
                             />
@@ -166,41 +166,8 @@ function FormGestor({ isEditMode }) {
                             <input
                                 type="tel"
                                 placeholder="Telefone"
-                                name="telefone"
-                                value={formData.telefone}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="empresa">Nome da Empresa:</label>
-                            <input
-                                type="text"
-                                placeholder="Empresa"
-                                name="empresa"
-                                value={formData.empresa}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="cargo">Cargo:</label>
-                            <input
-                                type="text"
-                                placeholder="Cargo"
-                                name="cargo"
-                                value={formData.cargo}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="equipe">Equipe:</label>
-                            <input
-                                type="text"
-                                placeholder="Equipe"
-                                name="equipe"
-                                value={formData.equipe}
+                                name="phone"
+                                value={formData.phone}
                                 onChange={handleChange}
                                 required
                             />
@@ -213,7 +180,7 @@ function FormGestor({ isEditMode }) {
                                 onChange={handleChange}
                             />
                         </div>
-                        <button type="submit" >{isEditMode?'Editar':'Criar'}</button>
+                        <button type="submit" >{isEditMode ? 'Editar' : 'Criar'}</button>
                     </form>
                 </div>
             </div>
