@@ -3,33 +3,35 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Sidebar from "../sidebar/Sidebar";
-import './Gestor.css'
+import './Colaborador.css'
 
-function Gestor() {
-    const [gestors, setGestors] = useState([]);
-    const [selectedGestor, setSelectedGestor] = useState(null);
+function Colaborador() {
+    const [Colaborador, setColaborador] = useState([]);
+    const [selectedcolaborador, setSelectedcolaborador] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const fetchGestors = async () => {
+        const fetchColaborador = async () => {
             try {
                 const response = await axios.get('http://localhost:8000/user/list/');
-                const gestoresFiltrados = response.data.results.filter(gestor => gestor.type_user === 2);
-                setGestors(gestoresFiltrados);
+                console.log(response.data.results)
+                const colaboradoresFiltrados = response.data.results.filter(colaborador => colaborador.type_user === 3);
+                setColaborador(colaboradoresFiltrados);
+             
             } catch (error) {
-                console.error("Erro ao buscar os gestores", error);
+                console.error("Erro ao buscar os colaboradores", error);
             }
         };
-        fetchGestors();
+        fetchColaborador();
     }, []);
 
     const handleDelete = async (id) => {
-        if (window.confirm('Deseja deletar este gestor?')) {
+        if (window.confirm('Deseja deletar este colaborador?')) {
             try {
                 await axios.delete(`http://localhost:8000/user/delete/${id}/`);
-                setGestors(gestors.filter(g => g.id !== id));
+                setColaborador(Colaborador.filter(g => g.id !== id));
             } catch (error) {
-                console.error("Erro ao deletar o gestor", error);
+                console.error("Erro ao deletar o colaborador", error);
             }
         }
     };
@@ -38,15 +40,15 @@ function Gestor() {
         <div>
             <Sidebar></Sidebar>
             <div className="content">
-                <div className="cadastrar-gestor">
-                    <button className="botao-cadastra-gestor" onClick={() => {
-                        navigate('/gestor/create');
+                <div className="cadastrar-colaborador">
+                    <button className="botao-cadastra-colaborador" onClick={() => {
+                        navigate('/colaborador/create');
                     }}>
-                        Cadastrar Gestor
+                        Cadastrar colaborador
                     </button>
                 </div>
 
-                {gestors.length ? (
+                {Colaborador.length ? (
                     <table>
                         <thead>
                             <tr>
@@ -56,21 +58,21 @@ function Gestor() {
                             </tr>
                         </thead>
                         <tbody>
-                            {gestors.map((gestor) => (
-                                <tr key={gestor.id}>
+                            {Colaborador.map((colaborador) => (
+                                <tr key={colaborador.id}>
                                     <td>
                                         <span onClick={() => {
-                                            setSelectedGestor(gestor);
+                                            setSelectedcolaborador(colaborador);
                                         }} style={{ cursor: 'pointer' }}>
-                                            {gestor.name}
+                                            {colaborador.name}
                                         </span>
                                     </td>
-                                    <td>{gestor.email}</td>
+                                    <td>{colaborador.email}</td>
                                     <td>
                                         <button className='editar' onClick={() => {
-                                            navigate(`/gestor/edit/${gestor.id}`);
+                                            navigate(`/colaborador/edit/${colaborador.id}`);
                                         }}>Editar</button>
-                                        <button className='deletar' onClick={() => handleDelete(gestor.id)}>Deletar</button>
+                                        <button className='deletar' onClick={() => handleDelete(colaborador.id)}>Deletar</button>
                                     </td>
                                 </tr>
                             ))}
@@ -78,11 +80,11 @@ function Gestor() {
                     </table>
                 ) : (<></>)}
 
-                {selectedGestor && (
+                {selectedcolaborador && (
                     <div>
-                        <h2>Detalhes do Gestor</h2>
-                        <p>Nome: {selectedGestor.name}</p>
-                        <p>Email: {selectedGestor.email}</p>
+                        <h2>Detalhes do colaborador</h2>
+                        <p>Nome: {selectedcolaborador.name}</p>
+                        <p>Email: {selectedcolaborador.email}</p>
                     </div>
                 )}
             </div>
@@ -90,4 +92,4 @@ function Gestor() {
     );
 }
 
-export default Gestor;
+export default Colaborador;

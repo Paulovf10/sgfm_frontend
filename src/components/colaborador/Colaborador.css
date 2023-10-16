@@ -1,0 +1,77 @@
+.cadastrar-colaborador{
+  text-align: center;
+}
+
+.botao-cadastra-colaborador {
+  align-self: center;
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  padding: 10px 20px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  margin-bottom: 10px; 
+  text-align: center;
+}
+
+.botao-cadastra-colaborador:hover {
+  background-color: #0056b3; 
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+
+th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+table button {
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+table button.editar {
+  background-color: #28a745;
+}
+
+table button.editar:hover {
+  background-color: #1e7e34;
+}
+
+table button.deletar {
+  background-color: rgb(211, 18, 18);
+}
+
+table button.deletar:hover {
+  background-color: rgb(175, 31, 31);;
+}
+
+
+table span {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
+table span:hover {
+  color: #0056b3;
+}

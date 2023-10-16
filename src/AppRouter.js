@@ -5,6 +5,9 @@ import Home from './components/home/Home'
 import Gestor from './components/getor/Gestor';
 import FormGestor from './components/getor/form-cadastro/FormGestor';
 import Metas from './components/metas/Metas';
+import Equipe from './components/equipe/Equipe'
+import Colaborador from './components/colaborador/Colaborador'
+import FormColaborador from './components/colaborador/form-cadastro/FormColaborador';
 
 function AppRouter() {
   return (
@@ -19,6 +22,14 @@ function AppRouter() {
 
         {/* Metas */}
         <Route path="/metas/" element={<Metas />} />
+
+        {/* Equipe */}
+        <Route path="/equipe/" element={<Equipe />} />
+
+        {/* Equipe */}
+        <Route path="/colaborador/" element={<Colaborador />} />
+        <Route path="/colaborador/edit/:id" element={<FormColaborador isEditMode={true} />} />
+        <Route path="/colaborador/create" element={<FormColaborador isEditMode={false} />} />
       </Routes>
     </Router>
   );

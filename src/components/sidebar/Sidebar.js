@@ -15,8 +15,14 @@ function Sidebar() {
                     navigate(`/gestor`);
                 }}>Gestor</button>
                 <button onClick={() => {
+                    navigate(`/colaborador`);
+                }}>Colaborador</button>
+                <button onClick={() => {
                     navigate(`/metas`);
                 }}>Metas</button>
+                <button onClick={() => {
+                    navigate(`/equipe`);
+                }}>Equipe</button>
                 <button>Tópico 3</button>
                 <button>Tópico 4</button>
                 <button className='sair'>Sair</button>
