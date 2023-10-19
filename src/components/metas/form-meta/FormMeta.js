@@ -10,10 +10,10 @@ function FormMeta({ isEditMode }) {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [formData, setFormData] = useState({
-        name: '',
+        nome: '',
         descricao: '',
-        tipo_meta: '',
-        ativo: '',
+        tipo_meta: 1,
+        ativo: false,
     });
 
     useEffect(() => {
@@ -44,13 +44,14 @@ function FormMeta({ isEditMode }) {
             ...formData,
             [e.target.name]: value
         });
+        console.log('Valor de tipo_meta:', value);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const apiData = {
-            name: formData.name,
+            nome: formData.nome,
             descricao: formData.descricao,
             tipo_meta: formData.tipo_meta,
             ativo: formData.ativo
@@ -74,7 +75,7 @@ function FormMeta({ isEditMode }) {
         } catch (error) {
             console.error("Erro ao enviar os dados:", error);
         } finally {
-            navigate(`/meta`);
+            navigate(`/metas`);
         }
     };
 
@@ -92,8 +93,8 @@ function FormMeta({ isEditMode }) {
                             <input
                                 type="text"
                                 placeholder="Nome"
-                                name="name"
-                                value={formData.name}
+                                name="nome"
+                                value={formData.nome}
                                 onChange={handleChange}
                                 required
                             />
@@ -115,7 +116,10 @@ function FormMeta({ isEditMode }) {
                                 type='checkbox'
                                 name="ativo"
                                 value={formData.ativo}
-                                onChange={handleChange}
+                                onChange={() => setFormData({
+                                ...formData,
+                                ativo: !formData.ativo
+                                })}
                             />
                         </div>
                         <div className="form-group">
@@ -124,8 +128,8 @@ function FormMeta({ isEditMode }) {
                                 name="tipo_meta"
                                 value={formData.tipo_meta}
                                 onChange={handleChange}>
-                                <option value='colaborador'>Colaborador</option>
-                                <option value='equipe'>Equipe</option>
+                                <option value={1}>Colaborador</option>
+                                <option value={2}>Equipe</option>
                             </select>
                         </div>
                         <button type="submit" >{isEditMode ? 'Editar' : 'Criar'}</button>
