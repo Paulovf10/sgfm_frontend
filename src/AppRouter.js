@@ -8,6 +8,7 @@ import Metas from './components/metas/Metas';
 import Equipe from './components/equipe/Equipe'
 import Colaborador from './components/colaborador/Colaborador'
 import FormColaborador from './components/colaborador/form-cadastro/FormColaborador';
+import FormMeta from './components/metas/form-meta/FormMeta';
 
 function AppRouter() {
   return (
@@ -22,6 +23,8 @@ function AppRouter() {
 
         {/* Metas */}
         <Route path="/metas/" element={<Metas />} />
+        <Route path="/metas/edit/:id" element={<FormMeta isEditMode={true} />} />
+        <Route path="/metas/create" element={<FormMeta isEditMode={false} />} />
 
         {/* Equipe */}
         <Route path="/equipe/" element={<Equipe />} />

@@ -23,8 +23,6 @@ function Sidebar() {
                 <button onClick={() => {
                     navigate(`/equipe`);
                 }}>Equipe</button>
-                <button>Tópico 3</button>
-                <button>Tópico 4</button>
                 <button className='sair'>Sair</button>
             </div>
         </div>
