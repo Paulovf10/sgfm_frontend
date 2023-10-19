@@ -9,6 +9,7 @@ import Equipe from './components/equipe/Equipe'
 import Colaborador from './components/colaborador/Colaborador'
 import FormColaborador from './components/colaborador/form-cadastro/FormColaborador';
 import FormMeta from './components/metas/form-meta/FormMeta';
+import FormEquipe from './components/equipe/form-cadastro/FormEquipe';
 
 function AppRouter() {
   return (
@@ -28,6 +29,8 @@ function AppRouter() {
 
         {/* Equipe */}
         <Route path="/equipe/" element={<Equipe />} />
+        <Route path="/equipe/create" element={<FormEquipe isEditMode={false}/>}/>
+        <Route path="/equipe/edit/:id" element={<FormEquipe isEditMode={true} />} />
 
         {/* Equipe */}
         <Route path="/colaborador/" element={<Colaborador />} />
