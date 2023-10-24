@@ -11,13 +11,9 @@
     color: white;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 2; /* Certifica que a sidebar está acima do conteúdo */
+    z-index: 2;
 }
-.main-title {
-    font-size: 40px;
-    text-align: center;
-    margin: 50px 0;
-}
+
 .sidebar button {
     width: 100%;
     padding: 15px;
@@ -37,7 +33,7 @@
 .content {
     flex-grow: 1;
     padding: 50px;
-    margin-left: 250px; /* Adiciona espaço à esquerda para evitar sobreposição com a sidebar */
+    margin-left: 250px;
 }
 
 .feature-section {
@@ -55,12 +51,6 @@
     font-size: 18px;
 }
 
-.feature-section .text-content h2 {
-    font-size: 36px;
-    font-family: 'Roboto', sans-serif; /* Fonte moderna para os títulos */
-    margin-bottom: 20px;
-}
-
 .feature-section .image-content {
     width: 45%;
 }
@@ -70,3 +60,95 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.main-title {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .28em;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Efeito hover para as seções */
+.feature-section:hover {
+    transform: translateY(-10px);
+    transition: transform 0.3s ease-out;
+}
+
+
+
+.text-content h3 {
+    color: #f8a502; /* Cor laranja suave para o título */
+    font-size: 24px; /* Tamanho maior para o título */
+}
+
+.image-content img {
+    width: 100%; /* Faz as imagens ocuparem todo o espaço disponível */
+}
+
+.feature-section {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    justify-content: space-between; /* Adiciona espaço entre o texto e as imagens */
+}
+
+/* ... (resto do código) ... */
+
+.new-section {
+    background-color: #3498db;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+
+.content {
+    flex: 1;
+    padding-left: 50px;
+}
+
+
+
+.feature-section,
+.new-section {
+    margin-bottom: 50px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.feature-section h3,
+.new-section h2 {
+    color: #3498db;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.text-content p,
+.text-content ul,
+.new-section p {
+    font-size: 18px;
+    color: #333;
+}
+
+.text-content ul {
+    margin-bottom: 20px;
+}
+
+.image-content img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+
+/* If you want to specifically target the "alvo" image, you can add a class to it and style it here */
+.image-content img.alvo {
+    max-width: 200px;
+}
+

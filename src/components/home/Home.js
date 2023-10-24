@@ -7,8 +7,9 @@ function Home() {
         <div className="home-container">
             <Sidebar></Sidebar>
             <div className="content">
-                <h2 className="main-title">Bem-vindo ao Sistema de Gerenciamento de Metas</h2>
-
+                <h1 className="main-title">Bem-vindo ao Sistema de Gerenciamento de Metas</h1>
+                <br></br>
+                <br></br>
                 <section className="feature-section">
                     <div className="text-content">
                         <h3>Alcance suas Metas com Eficiência</h3>
@@ -21,7 +22,7 @@ function Home() {
 
                 <section className="feature-section reversed">
                     <div className="image-content">
-                        <img src={process.env.PUBLIC_URL + '/static/alvo.png'} alt="Alvo das metas" />
+                        <img className="alvo" src={process.env.PUBLIC_URL + '/static/alvo.png'} alt="Alvo das metas" />
                     </div>
                     <div className="text-content">
                         <h3>Benefícios do Sistema</h3>
@@ -33,6 +34,12 @@ function Home() {
                         </ul>
                     </div>
                 </section>
+
+                <section className="new-section">
+                    <h2>Título da Nova Seção</h2>
+                    <p>Descrição ou conteúdo que você deseja adicionar nesta seção.</p>
+                </section>
+
             </div>
         </div>
     );
