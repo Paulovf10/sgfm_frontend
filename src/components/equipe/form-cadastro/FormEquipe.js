@@ -131,7 +131,7 @@ function FormEquipe({ isEditMode }) {
                             value={gestores.find(gestor => gestor.id === formData.gestor)?.name}
                             required
                             onChange={handleChange}>
-                                {gestores.map((gestor)=> (<option key={gestor.id} value={gestor.identification}>{gestor.name}</option>))}
+                                {gestores.map((gestor)=> (<option key={gestor.id} value={gestor.id}>{gestor.name}</option>))}
                             </select>
                         </div>
                         {formData.colaboradores.map(colaborador => {
