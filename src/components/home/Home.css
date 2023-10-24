@@ -1,8 +1,72 @@
-.content {
-    margin-left: 250px;
-    padding: 20px;
-    padding-left: 5%;
-    width: 75%;
-    
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.home-container {
+    display: flex;
+    height: 100vh;
 }
-  
+
+.sidebar {
+    width: 250px;
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Certifica que a sidebar está acima do conteúdo */
+}
+.main-title {
+    font-size: 40px;
+    text-align: center;
+    margin: 50px 0;
+}
+.sidebar button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: white;
+    color: #3498db;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #f0f0f0;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 50px;
+    margin-left: 250px; /* Adiciona espaço à esquerda para evitar sobreposição com a sidebar */
+}
+
+.feature-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 100px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.feature-section .text-content {
+    width: 45%;
+    font-size: 18px;
+}
+
+.feature-section .text-content h2 {
+    font-size: 36px;
+    font-family: 'Roboto', sans-serif; /* Fonte moderna para os títulos */
+    margin-bottom: 20px;
+}
+
+.feature-section .image-content {
+    width: 45%;
+}
+
+.feature-section .image-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
