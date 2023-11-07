@@ -10,6 +10,7 @@ import Colaborador from './components/colaborador/Colaborador'
 import FormColaborador from './components/colaborador/form-cadastro/FormColaborador';
 import FormMeta from './components/metas/form-meta/FormMeta';
 import FormEquipe from './components/equipe/form-cadastro/FormEquipe';
+import AssignMeta from './components/metas/assign-meta/assigin-meta';
 
 function AppRouter() {
   return (
@@ -26,6 +27,7 @@ function AppRouter() {
         <Route path="/metas/" element={<Metas />} />
         <Route path="/metas/edit/:id" element={<FormMeta isEditMode={true} />} />
         <Route path="/metas/create" element={<FormMeta isEditMode={false} />} />
+        <Route path="/metas/assign" element={<AssignMeta />} /> {/* Atualizado para usar 'element' */}
 
         {/* Equipe */}
         <Route path="/equipe/" element={<Equipe />} />

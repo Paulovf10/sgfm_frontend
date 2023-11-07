@@ -44,6 +44,10 @@
                     }}>
                         Cadastrar Metas
                     </button>
+
+                    <button className="botao-atribuir-metas" onClick={() => navigate('/metas/assign')}>
+    Atribuir Metas
+</button>
                 </div>
 
                 {metas.length ? (

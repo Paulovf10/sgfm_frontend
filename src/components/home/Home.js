@@ -36,8 +36,8 @@ function Home() {
                 </section>
 
                 <section className="new-section">
-                    <h2>Título da Nova Seção</h2>
-                    <p>Descrição ou conteúdo que você deseja adicionar nesta seção.</p>
+                    <h2>Utilize o sistema e maximize os resultados da sua gestão</h2>
+                    <p></p>
                 </section>
 
             </div>
