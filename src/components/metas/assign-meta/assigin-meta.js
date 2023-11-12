@@ -136,7 +136,7 @@ function AssignMeta() {
                                 ))}
                             </select>
                         </div>
-                        {metas.find(meta => meta.id.toString() === selectedMeta)?.tipo_meta === 1 && (
+                        {metas.find(meta => meta.id.toString() === selectedMeta)?.tipoMeta === 1 && (
                             <div className="form-group">
                                 <label>Colaboradores:</label>
                                 {colaboradores.map((colaborador) => (
@@ -153,7 +153,7 @@ function AssignMeta() {
                                 ))}
                             </div>
                         )}
-                        {metas.find(meta => meta.id.toString() === selectedMeta)?.tipo_meta === 2 && (
+                        {metas.find(meta => meta.id.toString() === selectedMeta)?.tipoeta === 2 && (
                             <div className="form-group">
                                 <label htmlFor="equipe">Equipe:</label>
                                 <select

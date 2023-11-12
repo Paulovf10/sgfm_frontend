@@ -1,0 +1,190 @@
+.cadastrar-metas{
+    text-align: center;
+}
+
+.botao-cadastra-metas {
+    align-self: center;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+    text-align: center;
+  }
+  
+.botao-cadastra-metas:hover {
+    background-color: #0056b3;
+}
+
+
+.botao-atribuir-metas {
+    align-self: center;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    padding-left: 15px;
+    margin-left: 20px;
+    cursor: pointer; 
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+    text-align: center;
+  }
+  
+.botao-atribuir-metas:hover {
+    background-color: #0056b3;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  table button {
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+
+  table button.editar {
+    background-color: #28a745;
+  }
+  
+  table button.editar:hover {
+    background-color: #1e7e34;
+  }
+
+  table button.deletar {
+    background-color: rgb(211, 18, 18);
+  }
+
+  table button.deletar:hover {
+    background-color: rgb(175, 31, 31);;
+  }
+  
+  table span {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 10px;
+  }
+  
+  table span:hover {
+    color: #0056b3;
+  }
+  
+
+  /* track-meta.css */
+.meta-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.meta-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  width: 200px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.meta-card.selected {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.meta-card-content {
+  /* Seu estilo aqui */
+}
+
+/* track-meta.css */
+.meta-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.meta-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.meta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-meta-details {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+}
+
+.atualizacao-form {
+  margin-top: 20px;
+}
+
+.atualizacao-item {
+  background-color: #ececec;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+}
+/* track-meta.css */
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  background-color: #4caf50; /* Cor verde para a barra de progresso */
+  height: 20px; /* Altura da barra de progresso */
+  width: 0; /* Largura inicial */
+  border-radius: 8px;
+  transition: width 0.4s ease-in-out;
+}
+
+
+/* track-meta.css */
+.show-atualizacoes-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 8px 16px;
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.show-atualizacoes-btn:hover {
+  background-color: #45a049; /* Verde um pouco mais escuro */
+}
