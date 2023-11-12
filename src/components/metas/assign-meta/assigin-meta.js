@@ -13,7 +13,7 @@ function AssignMeta() {
     const [equipes, setEquipes] = useState([]);
     const [selectedMeta, setSelectedMeta] = useState('');
     const [selectedColaboradores, setSelectedColaboradores] = useState([]);
-    const [selectedEquipe, setSelectedEquipe] = useState('');
+    const [selectedEquipe, setSelectedEquipe] = useState([]);
 
     // Funções para buscar colaboradores e equipes
     const fetchColaboradores = async () => {
@@ -78,7 +78,10 @@ function AssignMeta() {
     };
 
     const handleEquipeChange = (e) => {
-        setSelectedEquipe(e.target.value);
+        const value = e.target.value;
+        console.log('value', value)
+        setSelectedEquipe([ value]);
+
     };
 
     const handleSubmit = async (e) => {
