@@ -23,7 +23,7 @@ function FormMeta({ isEditMode }) {
     const [formData, setFormData] = useState({
         nome: '',
         descricao: '',
-        tipoMeta: '',
+        tipoMeta: 1,
         valorAlvo: '',
         progressoAtual: '0', // Valor padrão 0
         unidadeMedida: '',

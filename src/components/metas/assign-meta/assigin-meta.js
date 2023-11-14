@@ -78,19 +78,15 @@ function AssignMeta() {
     };
 
     const handleEquipeChange = (e) => {
-        const value = e.target.value;
-        console.log('value', value)
-        setSelectedEquipe([ value]);
-
+        setSelectedEquipe(e.target.value); // Agora é apenas um valor, não um array
     };
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         const apiData = {
-            // Outros campos da meta que você queira enviar no payload da requisição
             colaboradores: selectedColaboradores,
-            equipe: selectedEquipe
+            equipe: selectedEquipe ? [selectedEquipe] : [] // Garante que equipe seja um array com o valor de selectedEquipe
         };
 
         const updateUrl = `http://127.0.0.1:8000/meta/update/${selectedMeta}/`;
@@ -153,7 +149,7 @@ function AssignMeta() {
                                 ))}
                             </div>
                         )}
-                        {metas.find(meta => meta.id.toString() === selectedMeta)?.tipoeta === 2 && (
+                        {metas.find(meta => meta.id.toString() === selectedMeta)?.tipoMeta === 2 && (
                             <div className="form-group">
                                 <label htmlFor="equipe">Equipe:</label>
                                 <select
