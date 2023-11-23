@@ -12,6 +12,8 @@ import FormMeta from './components/metas/form-meta/FormMeta';
 import FormEquipe from './components/equipe/form-cadastro/FormEquipe';
 import AssignMeta from './components/metas/assign-meta/assigin-meta';
 import TrackMeta from './components/metas/track-meta/track-meta';
+import Relatorios from './components/relatorio/relatorio'
+import GeraRelatorios from './components/relatorio/gera-relatorio/gera-relatorio'
 
 function AppRouter() {
   return (
@@ -36,10 +38,16 @@ function AppRouter() {
         <Route path="/equipe/create" element={<FormEquipe isEditMode={false}/>}/>
         <Route path="/equipe/edit/:id" element={<FormEquipe isEditMode={true} />} />
 
-        {/* Equipe */}
+        {/* Colaborador */}
         <Route path="/colaborador/" element={<Colaborador />} />
         <Route path="/colaborador/edit/:id" element={<FormColaborador isEditMode={true} />} />
         <Route path="/colaborador/create" element={<FormColaborador isEditMode={false} />} />
+
+                {/* Relatorio */}
+                <Route path="/relatorio/" element={<Relatorios />} />
+                <Route path="/gera-relatorio/" element={<GeraRelatorios />} />
+
+
       </Routes>
     </Router>
   );

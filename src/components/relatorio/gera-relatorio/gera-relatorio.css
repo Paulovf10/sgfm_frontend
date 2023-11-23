@@ -1,0 +1,266 @@
+.cadastrar-equipes{
+    text-align: center;
+}
+
+.botao-cadastra-equipes {
+    align-self: center;
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+    text-align: center;
+  }
+  
+.botao-cadastra-equipes:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  table button {
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+
+  table button.editar {
+    background-color: #28a745;
+  }
+  
+  table button.editar:hover {
+    background-color: #1e7e34;
+  }
+
+  table button.deletar {
+    background-color: rgb(211, 18, 18);
+  }
+
+  table button.deletar:hover {
+    background-color: rgb(175, 31, 31);;
+  }
+  
+  table span {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-right: 10px;
+  }
+  
+  table span:hover {
+    color: #0056b3;
+  }
+  
+  .relatorio-dropdown {
+    margin-bottom: 20px; /* Espaçamento entre os dropdowns */
+    display: block; /* Garante que cada dropdown ocupe sua própria linha */
+    width: 100%; /* Faz o dropdown ocupar a largura total */
+}
+
+.relatorio-button {
+    margin-top: 20px; /* Espaçamento acima do botão */
+    display: block; /* Garante que o botão ocupe sua própria linha */
+    width: 100%; /* Faz o botão ocupar a largura total */
+}
+.relatorio-detalhes {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+.relatorio-resultados {
+  margin-top: 20px;
+}
+
+.relatorio-meta {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.relatorio-atualizacoes {
+  margin-top: 10px;
+}
+
+.relatorio-atualizacoes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.relatorio-atualizacoes li {
+  background-color: #f7f7f7;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.relatorio-nota-final {
+  padding: 10px;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.gera-relatorio-container {
+  /* Seus estilos para gera-relatorio-container */
+}
+
+.relatorio-dropdown {
+  margin-bottom: 20px;
+  display: block;
+  width: 100%;
+  /* Outros estilos que desejar */
+}
+
+.relatorio-button {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  /* Outros estilos que desejar */
+}
+
+.relatorio-resultados {
+  margin-top: 20px;
+  /* Outros estilos que desejar */
+}
+
+.relatorio-meta {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+  /* Outros estilos que desejar */
+}
+
+.relatorio-atualizacoes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.relatorio-atualizacoes li {
+  background-color: #f7f7f7;
+  margin-bottom: 5px;
+  padding: 5px;
+  /* Outros estilos que desejar */
+}
+
+/* Estilos para a nota final baseados na pontuação */
+.nota-S { background-color: green; }
+.nota-A { background-color: blue; }
+.nota-B { background-color: orange; }
+.nota-C { background-color: darkorange; }
+.nota-D { background-color: red; }
+.nota-F { background-color: darkred; }
+
+.relatorio-nota-final {
+  padding: 10px;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+  /* Outros estilos que desejar */
+}
+
+
+.relatorio-sumario {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+
+
+}
+
+.relatorio-nota-final {
+  padding: 5px;
+  color: white;
+  font-size: 1.2rem; /* Um pouco menor que o tamanho original */
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: inline-block; /* Para reduzir o espaço ocupado pela nota */
+}
+
+/* Estilos para a nota final baseados na pontuação */
+.nota-S { background-color: green; }
+.nota-A { background-color: blue; }
+.nota-B { background-color: orange; }
+.nota-C { background-color: darkorange; }
+.nota-D { background-color: red; }
+.nota-F { background-color: darkred; }
+
+
+
+.relatorio-dados-e-grafico {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Ajuste conforme necessário */
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.relatorio-dados {
+  flex: 3; /* Ajuste a proporção conforme necessário */
+}
+
+.grafico-relatorio {
+  flex: 2; /* Ajuste a proporção conforme necessário */
+  max-height: 200px; /* Ajuste a altura máxima do gráfico conforme necessário */
+  align-items: left;
+}
+
+.relatorio-nota-final {
+  padding: 10px;
+  font-size: 1rem; /* Reduzindo o tamanho da fonte para o bloco da nota final */
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 40px; /* Ajustando a altura do bloco da nota final */
+  width: 120px;
+  display: flex;
+  align-items: center; /* Centraliza o texto verticalmente */
+  justify-content: center; /* Centraliza o texto horizontalmente */
+}
+
+/* Adicione cores correspondentes à nota */
+.nota-S { background-color: green; }
+.nota-A { background-color: blue; }
+.nota-B { background-color: orange; }
+.nota-C { background-color: darkorange; }
+.nota-D { background-color: red; }
+.nota-F { background-color: darkred; }
+
+.relatorio-dados-e-grafico {
+  display: flex;
+  justify-content: space-between; /* Isso irá posicionar o gráfico à direita */
+}
+
+.relatorio-dados {
+  flex: 3; /* Isso permite que os dados ocupem mais espaço do que o gráfico */
+}
+
+.grafico-relatorio {
+  flex: 2; /* Isso limita o gráfico a ocupar menos espaço do que os dados */
+  max-height: 200px; /* Ajuste a altura máxima do gráfico conforme necessário */
+}

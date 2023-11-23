@@ -17,12 +17,16 @@ function Sidebar() {
                 <button onClick={() => {
                     navigate(`/colaborador`);
                 }}>Colaborador</button>
-                <button onClick={() => {
-                    navigate(`/metas`);
-                }}>Metas</button>
+
                 <button onClick={() => {
                     navigate(`/equipe`);
                 }}>Equipe</button>
+                                <button onClick={() => {
+                    navigate(`/metas`);
+                }}>Metas</button>
+                                <button onClick={() => {
+                    navigate(`/relatorio`);
+                }}>Relatorio</button>
                 <button className='sair'>Sair</button>
             </div>
         </div>
