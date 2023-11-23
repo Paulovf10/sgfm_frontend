@@ -27,7 +27,12 @@ function Sidebar() {
                                 <button onClick={() => {
                     navigate(`/relatorio`);
                 }}>Relatorio</button>
-                <button className='sair'>Sair</button>
+                <button 
+                className='sair'
+                onClick={() => {
+                    navigate(`/login`);
+                }}
+                >Sair</button>
             </div>
         </div>
     );

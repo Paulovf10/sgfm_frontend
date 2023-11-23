@@ -14,12 +14,14 @@ import AssignMeta from './components/metas/assign-meta/assigin-meta';
 import TrackMeta from './components/metas/track-meta/track-meta';
 import Relatorios from './components/relatorio/relatorio'
 import GeraRelatorios from './components/relatorio/gera-relatorio/gera-relatorio'
+import Login from './components/login';
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
         <Route path="/*" element={<Home></Home>} />
+        <Route path="/login" element={<Login></Login>} />
 
         {/* Gestor */}
         <Route path="/gestor/" element={<Gestor />} />
