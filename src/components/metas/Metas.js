@@ -10,6 +10,7 @@ function Metas() {
     const [metas, setMetas] = useState([]);
     const [selectedMeta, setSelectedMeta] = useState(null);
     const navigate = useNavigate();
+    const userType = localStorage.getItem('userToken');
 
     useEffect(() => {
         const fetchMetas = async () => {
@@ -39,7 +40,9 @@ function Metas() {
         <Sidebar></Sidebar>
         <div className="content">
             <div className="cadastrar-metas">
-                <button className="botao-cadastra-metas" onClick={() => {
+            {userType == 2 && (
+          <>
+            <button className="botao-cadastra-metas" onClick={() => {
                     navigate('/metas/create');
                 }}>
                     Cadastrar Metas
@@ -51,6 +54,9 @@ function Metas() {
                 <button className="botao-atribuir-metas" onClick={() => navigate('/metas/track')}>
                     Acompanhar Metas
                 </button>
+          </>
+        )}
+                
             </div>
 
             {metas.length ? (
@@ -61,7 +67,9 @@ function Metas() {
                             <th>Descrição</th>
                             <th>Tipo</th>
                             <th>Ativo</th>
+                            {userType == 2 && (
                             <th>Opções</th>
+                            )}
                         </tr>
                     </thead>
                     <tbody>
@@ -77,12 +85,16 @@ function Metas() {
                                 <td>{meta.descricao}</td>
                                 <td>{meta.tipo_meta}</td>
                                 <td>{meta.ativo ? '✔' : '❌'}</td>
-                                <td>
+                                {userType == 2 && (
+                                <td> 
                                     <button className='editar' onClick={() => {
                                         navigate(`/metas/edit/${meta.id}`);
                                     }}>Editar</button>
+                                    
                                     <button className='deletar' onClick={() => handleDelete(meta.id)}>Deletar</button>
+                                    
                                 </td>
+                                )}
                             </tr>
                         ))}
                     </tbody>

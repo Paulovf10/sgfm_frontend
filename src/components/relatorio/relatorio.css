@@ -1,8 +1,8 @@
-.cadastrar-equipes{
+.cadastrar-relatorios{
     text-align: center;
 }
 
-.botao-cadastra-equipes {
+.botao-cadastra-relatorios {
     align-self: center;
     background-color: #007bff; 
     color: #fff; 
@@ -14,7 +14,7 @@
     text-align: center;
   }
   
-.botao-cadastra-equipes:hover {
+.botao-cadastra-relatorios:hover {
     background-color: #0056b3;
 }
 

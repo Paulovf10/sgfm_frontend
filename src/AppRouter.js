@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute'; // Importe o componente ProtectedRoute
+
 
 import Home from './components/home/Home'
 import Gestor from './components/getor/Gestor';
@@ -14,42 +16,45 @@ import AssignMeta from './components/metas/assign-meta/assigin-meta';
 import TrackMeta from './components/metas/track-meta/track-meta';
 import Relatorios from './components/relatorio/relatorio'
 import GeraRelatorios from './components/relatorio/gera-relatorio/gera-relatorio'
-import Login from './components/login';
+import LoginScreen from './components/login/Login';
+import ExibirRelatorio from './components/relatorio/exibir-relatorio/exibir-relatorio';
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<Home></Home>} />
-        <Route path="/login" element={<Login></Login>} />
-
+        <Route path="/login" element={<LoginScreen />} />
+        <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        
         {/* Gestor */}
-        <Route path="/gestor/" element={<Gestor />} />
-        <Route path="/gestor/edit/:id" element={<FormGestor isEditMode={true} />} />
-        <Route path="/gestor/create" element={<FormGestor isEditMode={false} />} />
+        <Route path="/gestor/" element={<ProtectedRoute><Gestor /></ProtectedRoute>} />
+        <Route path="/gestor/edit/:id" element={<ProtectedRoute><FormGestor isEditMode={true} /></ProtectedRoute>} />
+        <Route path="/gestor/create" element={<ProtectedRoute><FormGestor isEditMode={false} /></ProtectedRoute>} />
 
         {/* Metas */}
-        <Route path="/metas/" element={<Metas />} />
-        <Route path="/metas/edit/:id" element={<FormMeta isEditMode={true} />} />
-        <Route path="/metas/create" element={<FormMeta isEditMode={false} />} />
-        <Route path="/metas/assign" element={<AssignMeta />} /> 
-        <Route path="/metas/track" element={<TrackMeta />} /> 
+        <Route path="/metas/" element={<ProtectedRoute><Metas /></ProtectedRoute>} />
+        <Route path="/metas/edit/:id" element={<ProtectedRoute><FormMeta isEditMode={true} /></ProtectedRoute>} />
+        <Route path="/metas/create" element={<ProtectedRoute><FormMeta isEditMode={false} /></ProtectedRoute>} />
+        <Route path="/metas/assign" element={<ProtectedRoute><AssignMeta /></ProtectedRoute>} />
+        <Route path="/metas/track" element={<ProtectedRoute><TrackMeta /></ProtectedRoute>} />
 
         {/* Equipe */}
-        <Route path="/equipe/" element={<Equipe />} />
-        <Route path="/equipe/create" element={<FormEquipe isEditMode={false}/>}/>
-        <Route path="/equipe/edit/:id" element={<FormEquipe isEditMode={true} />} />
+        <Route path="/equipe/" element={<ProtectedRoute><Equipe /></ProtectedRoute>} />
+        <Route path="/equipe/create" element={<ProtectedRoute><FormEquipe isEditMode={false}/></ProtectedRoute>} />
+        <Route path="/equipe/edit/:id" element={<ProtectedRoute><FormEquipe isEditMode={true} /></ProtectedRoute>} />
 
         {/* Colaborador */}
-        <Route path="/colaborador/" element={<Colaborador />} />
-        <Route path="/colaborador/edit/:id" element={<FormColaborador isEditMode={true} />} />
-        <Route path="/colaborador/create" element={<FormColaborador isEditMode={false} />} />
+        <Route path="/colaborador/" element={<ProtectedRoute><Colaborador /></ProtectedRoute>} />
+        <Route path="/colaborador/edit/:id" element={<ProtectedRoute><FormColaborador isEditMode={true} /></ProtectedRoute>} />
+        <Route path="/colaborador/create" element={<ProtectedRoute><FormColaborador isEditMode={false} /></ProtectedRoute>} />
 
-                {/* Relatorio */}
-                <Route path="/relatorio/" element={<Relatorios />} />
-                <Route path="/gera-relatorio/" element={<GeraRelatorios />} />
+        {/* Relatorio */}
+        <Route path="/relatorio/" element={<ProtectedRoute><Relatorios /></ProtectedRoute>} />
+        <Route path="/gera-relatorio/" element={<ProtectedRoute><GeraRelatorios /></ProtectedRoute>} />
+        <Route path="/exibe-relatorio/:id" element={<ProtectedRoute><ExibirRelatorio /></ProtectedRoute>} />
 
-
+        {/* Redireciona para login se nenhuma rota corresponder */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );

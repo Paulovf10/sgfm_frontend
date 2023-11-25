@@ -25,3 +25,41 @@
 .sidebar button:hover {
     background-color: #555;
 }
+
+/* ... outros estilos ... */
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Linha separadora */
+  }
+  
+  .sidebar-buttons {
+    padding: 10px 0;
+  }
+  
+  .user-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .user-name {
+    font-size: 16px;
+  }
+  
+  .logout-confirmation {
+    position: absolute;
+    bottom: 60px; /* Ajuste conforme necessário */
+    width: 70%;
+    text-align: center;
+  }
+  
+  .logout-confirmation p {
+    margin-bottom: 10px;
+  }
+  
+  /* ... */
+  
+  
